@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e9a347;
+    border: 3px solid black;
+    
+    padding: 10px;
+    
+    border-radius: 30px;
+  }
+  .link { 
+    width:400px ;
+    height: 55px;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    background-image: linear-gradient(to bottom, #ff9900, #f5db99);
+    border: 3px solid #000000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+
+    font-size: 25px;
+    
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    color: rgb(255, 255, 255);
+    border: 5px solid #000000;
+    
+  }
+  

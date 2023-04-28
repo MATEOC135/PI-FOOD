@@ -1,11 +1,44 @@
-import './App.css';
+import { Route, Routes, useLocation } from "react-router-dom";
+import InitP from "./components/InitialPage/initialPage"
+import Cards from "./components/cards/HomeCards";
+import Nav from "./components/nav/nav.jsx"
+import About from "./components/nav/about/about.jsx"
+import axios from "axios"
+import Detail from "./components/Detail/Detail";
+import Form from "./components/Form/Form.jsx"
+import Detailbd from "./components/Detail/Detaildb"
+import { useDispatch } from "react-redux";
+import { fullRecipes } from "./Redux/actions/actions";
 
-function App() {
+
+export default function App() {
+  const location = useLocation();
+  
+  const dispatch =useDispatch()
+
+
+  const onSearch = async function (recipeName) {
+    try {
+      const { data } = await axios.get(`http://localhost:3001/recipe?name=${recipeName}`); 
+      dispatch(fullRecipes(data))
+    } catch (error) {
+      window.alert(error)
+
+    }
+  };
+
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
+    <div>
+      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
+      <Routes>
+        <Route exact path="/" element={<InitP />} />
+        <Route path="/home" element={<Cards onSearch={onSearch}  />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/form" element={<Form/>} />
+        <Route path="/detailbd/:id" element={<Detailbd />} />
+      </Routes>
     </div>
-  );
-}
 
-export default App;
+  )
+}

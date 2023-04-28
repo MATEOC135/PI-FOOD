@@ -1,0 +1,82 @@
+.cardsfondo {
+  background-image: url("https://img.freepik.com/vector-gratis/elementos-comida-dibujados-mano_1411-48.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+
+}
+.cardsContainer {
+  margin-left: 90px ;
+  justify-content: space-between;
+ 
+   flex-direction: column;
+      align-items: center;
+  
+  }
+  
+ 
+
+
+  .ulpg {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .lipg {
+    margin: 0 5px;
+  }
+  
+  .buttonpg {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .active buttonpg {
+    background-color: white;
+    color: orange;
+  }
+
+
+
+  .myselect {
+    background-color: #fff;
+    border: 5px solid #ffa500;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .myselect option {
+    background-color: #fff;
+    color: #333;
+  }
+
+  .mybutton {
+    background-color: #fff;
+    border: 5px solid #ffa500;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 18px;
+    margin-bottom: 10px;
+  
+  }
+  
+  .mybutton:hover {
+    background-color: #ffa500;
+    border-color: #fff;
+    color: #fff;
+  }

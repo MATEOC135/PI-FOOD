@@ -1,0 +1,81 @@
+.foodcontainer {
+  background-image: url("https://img.freepik.com/vector-gratis/elementos-comida-dibujados-mano_1411-48.jpg");
+  background-size: cover;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.fooditem {
+  position: relative;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fooditem:hover {
+  transform: scale(1.2);
+}
+
+.fooditem:before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.fooditem:hover:before {
+  transform: scale(1);
+}
+
+.fooditem img {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.fooditem:hover img {
+  filter: grayscale(100%);
+}
+
+.fooditem button {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #ff6f69;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fooditem:hover buttoN {
+  bottom: 36px;
+}
