@@ -9,23 +9,29 @@ import Form from "./components/Form/Form.jsx"
 import Detailbd from "./components/Detail/Detaildb"
 import { useDispatch } from "react-redux";
 import { fullRecipes } from "./Redux/actions/actions";
+import { useEffect } from "react";
 
 
 export default function App() {
   const location = useLocation();
-  
   const dispatch =useDispatch()
-
-
   const onSearch = async function (recipeName) {
     try {
       const { data } = await axios.get(`http://localhost:3001/recipe?name=${recipeName}`); 
+      if (data.message) {
+        window.alert(data.message);
+      }
       dispatch(fullRecipes(data))
+     
     } catch (error) {
       window.alert(error)
 
     }
   };
+    useEffect(()=>{
+      onSearch("")
+   
+},[])
 
   return (
     <div>

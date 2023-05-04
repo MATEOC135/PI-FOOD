@@ -19,7 +19,7 @@ export default function Form (){
       const [errors, setErrors] = useState({
         name: '',
         summary: '',
-        healthScore: 0,
+        healthScore:'',
         pap: '',
         image: '',
         diets: [],
@@ -146,7 +146,7 @@ export default function Form (){
       <br />
       <label>
         Nivel de comida saludable (health score): <div>{formData.healthScore}</div>
-        <input  name="healthScore" type="range"  min="1.0" max="10.0"  value={formData.healthScore} onChange={handleInputChange} className={errors.healthScore && Styles.warning} /> <p className={errors.healthScore && Styles.danger} >{errors.healthScore}</p>
+        <input  name="healthScore" type="range"  min="0" max="100"  value={formData.healthScore} onChange={handleInputChange} className={errors.healthScore && Styles.warning} /> <p className={errors.healthScore && Styles.danger} >{errors.healthScore}</p>
       </label>
       
       <br />

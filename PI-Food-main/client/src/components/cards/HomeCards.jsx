@@ -4,7 +4,7 @@ import Styles from "./Homecards.module.css"
 import axios from "axios"
 import { Link } from "react-router-dom";
 import {  connect,useDispatch } from "react-redux";
-import { orderCards,filterCards,orderByHealth, origin, fullRecipes } from "../../Redux/actions/actions";
+import { orderCards,filterCards,orderByHealth, origin,  } from "../../Redux/actions/actions";
 import { useState } from "react";
 
 
@@ -22,7 +22,7 @@ export  function HomeCards(props) {
   
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9); 
-  const totalPages = Math.ceil(recipesLocal / itemsPerPage);
+  const totalPages = Math.ceil(recipesLocal.length / itemsPerPage);
 
   const [diets, setDiets] = useState([]);
 
@@ -63,7 +63,7 @@ export  function HomeCards(props) {
     
     <div className={Styles.cardsfondo}>
 
-      <select className={Styles.myselect} onChange={(e) => dispatch(orderCards(e.target.value))}>
+      <div><select className={Styles.myselect} onChange={(e) => dispatch(orderCards(e.target.value))}>
         {["Ascendente", "Descendente"].map((e, i) => (
           <option value={e} key={i}>
             {e}
@@ -99,7 +99,7 @@ export  function HomeCards(props) {
 
       <button className={Styles.mybutton} onClick={()=>props.onSearch("")} >RESET</button>
 
-
+</div>
 
 
       
@@ -126,7 +126,8 @@ export  function HomeCards(props) {
     <div>  <ul className={Styles.ulpg} >
       {pages.map((page) => (
         <li className={Styles.lipg} key={page} >
-          <button className={Styles.buttonpg} onClick={() => handlePageChange(page)}>{page}</button>
+          <button className={`${Styles.buttonpg} ${currentPage === page ? Styles.active : ''}`}
+           onClick={() => handlePageChange(page)}>{page}</button>
         </li>
       ))}
     </ul></div>

@@ -40,12 +40,12 @@ export default function Detail(){
           <img src={character.image} alt={character.title} />
         </div>
         <div className={Styles.content}>
-          <h2 className={Styles.title}>{character.title}</h2>
+          <h2 className={Styles.title}> Nombre: {character.title}</h2>
           <div className={Styles.details}>
-            <p className={Styles.summary} dangerouslySetInnerHTML={{__html: character.summary}}></p>
+            <p>Summary: </p> <p className={Styles.summary} dangerouslySetInnerHTML={{__html: character.summary}}></p>
             <p className={Styles.healthScore}>Health Score: {character.healthScore}</p>
-            <p className={Styles.instructions}>{character.instructions}</p>
-            <p className={Styles.diets}>
+            <p>Instrucciones: </p> <p className={Styles.instructions} dangerouslySetInnerHTML={{__html: character.instructions}}></p>
+            <p className={Styles.diets}> Dietas:   
               {character.diets}
             </p>
           </div>

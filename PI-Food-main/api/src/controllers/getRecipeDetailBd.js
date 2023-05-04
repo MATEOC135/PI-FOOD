@@ -11,7 +11,9 @@ const getRecipeDetailbd = async (req, res) => {
             if (!dbRecipe) {
                 return res.status(404).json({ error: "La receta no existe" });
             } else {
+                console.log(dbRecipe)
                 return res.status(200).json(dbRecipe)
+                
             }
         }else{
             return res.status(400).json({ error: "Falta proporcionar el ID de la receta" });

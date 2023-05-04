@@ -22,7 +22,7 @@ const regexImage =/^(ftp|http|https):\/\/[^ "]+$/;
         errors.summary ="Este campo no puede exceder los 400 caracteres"
         
     }
-    if (inputs.heathScore === 0) {
+    if (inputs.healthScore === 0) {
         errors.healthScore ="El indice de comida saludable no puede ser 0"
         
     }

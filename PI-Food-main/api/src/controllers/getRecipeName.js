@@ -9,9 +9,11 @@ console.log(API_KEY)
 const getRecipeName = async (req, res) => {
 
     try {
+        console.log("AQUI VA")
         const { name } = req.query;
         const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
             const apiRecipes = apiResponse.data.results;
+
            
 
         if (name) { 
@@ -21,7 +23,7 @@ const getRecipeName = async (req, res) => {
           })
         console.log(dbRecipes)
 
-        searchName = name.toLowerCase()
+        let searchName = name.toLowerCase()
         const apiRecipesFilter =await apiRecipes.filter(recipe => {
  
             const recipeName = recipe.title?.toLowerCase();
@@ -29,16 +31,18 @@ const getRecipeName = async (req, res) => {
             return recipeName.includes(searchName);
           });
          const totalRecipes = [...apiRecipesFilter, ...dbRecipes]
+         console.log(totalRecipes, "este es el total")
+         console.log(totalRecipes.length, "este es el total contado")
+         console.log(apiRecipesFilter.length)
+         console.log(totalRecipes.length         )
 
-
-
-
-        if (totalRecipes.length === 0) {
-            res.status(404).json({ message: `No se encontraron recetas con el nombre '${name}'` })
+        if (!totalRecipes.length > 0  ) {
+            res.status(400).json({ message: "No se encontraron recetas con este nombre" });
         } else {
             res.status(200).json(totalRecipes);
             
         }
+
             
         } else {
             res.status(200).json(apiRecipes)
