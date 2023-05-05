@@ -37,7 +37,7 @@ const getRecipeName = async (req, res) => {
          console.log(totalRecipes.length         )
 
         if (!totalRecipes.length > 0  ) {
-            res.status(400).json({ message: "No se encontraron recetas con este nombre" });
+            res.status(400).json({ message: "No se encontraron recetas con este nombre" }); 
         } else {
             res.status(200).json(totalRecipes);
             
